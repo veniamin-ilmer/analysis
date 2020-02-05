@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--Origin: https://ialab.it.monash.edu/webcola/ -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Stock Correlation</title>
+<style>
+
+circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.negativelink {
+  stroke: #F00;
+  stroke-opacity: 1;
+}
+.positivelink {
+  stroke: #0F0;
+  stroke-opacity: 1;
+}
+
+
+.label {
+  user-select: none;
+  white-space: pre;
+  cursor: pointer;
+}
+
+label {
+  user-select: none;
+  text-align:center;
+}
+
+</style>
+</head>
+<body>
+<header style="display:flex; justify-content: space-between" id="header">
+  <font size=5>Stock Correlation</font>
+  <label style="font-size:130%"><input type=checkbox checked id=is_sector onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:olive"></svg>Sectors</label>
+  <label style="font-size:130%"><input type=checkbox id=is_marketcap onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:maroon"></svg>Market Caps</label>
+  <label style="font-size:130%"><input type=checkbox checked id=is_international onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:green"></svg>International</label>
+  <label style="font-size:130%"><input type=checkbox checked id=is_corp_bond onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:blue"></svg>Corporate Bonds</label>
+  <label style="font-size:130%"><input type=checkbox checked id=is_gov_bond onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:fuchsia"></svg>Government Bonds</label>
+</header>
+Click and drag the nodes to best fit.
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://ialab.it.monash.edu/webcola/cola.min.js"></script>
+<script>
+function start() {
+    var width = window.innerWidth - 50, //Figure this out at some point
+        height = window.innerHeight - 70;
+
+    d3cola = cola.d3adaptor()
+        .size([width, height]);
+
+    svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+    svg.append("clipPath")
+        .attr("id","clipMask")
+    draw();
+    
+    var is_sector = document.getElementById("is_sector").checked;
+    var is_marketcap = document.getElementById("is_marketcap").checked;
+    var is_international = document.getElementById("is_international").checked;
+    var is_corp_bond = document.getElementById("is_corp_bond").checked;
+    var is_gov_bond = document.getElementById("is_gov_bond").checked;
+    if(!is_corp_bond && !is_gov_bond)
+    {
+      //"Zoomed in" view.
+      super_power = 6;
+      super_mult = 50;
+    } else if(is_corp_bond && !is_gov_bond) {
+      //"Zoomed out" view.
+      super_power = 1;
+      super_mult = 100;
+    } else {
+      //"Normal" view.
+      super_power = 1.8;
+      super_mult = 80;
+    }
+}
+start();
+
+function redraw() {
+  //Quick inefficient solution
+  svg.remove();
+  start();
+}
+
+function draw() {
+  var colors = ["olive", "maroon", "green", "blue", "fuchsia"];
+
+    var g = { nodes: [], links: [] };
+    var edgeLookup = {};
+    var minFlow = Number.MAX_VALUE, maxFlow = -Number.MAX_VALUE;
+    var node;
+    d3.csv("correlation_nodes.csv", function (d) {
+          g.nodes.push({ name: d["Node"], type: d["Type"] });
+    }, function (error, rows) {
+        d3.csv("correlation_weights.csv", function (d) {
+            var edge = { source: d["From"] - 1, target: d["To"] - 1, length: super_mult/Math.pow(Math.abs(d["Length"]),super_power), positive: d["Length"]>0 }; //flows
+            g.links.push(edge);
+            edgeLookup[d.Line] = edge;
+}, function (error, rows) {
+
+    g.links = g.links.filter(filterlinks);
+
+    d3cola
+    .linkDistance(function (l) { return l.length })
+    .nodes(g.nodes)
+    .links(g.links)
+    .handleDisconnected(false)
+    //.symmetricDiffLinkLengths()
+    .start();
+    
+    var link = svg.selectAll(".link")
+                    .data(g.links)
+                    .enter().append("line")
+                    .attr("class", function(d) { return d["positive"] ? "positivelink" : "negativelink"})
+                    .style("stroke-width", function (d) { return 200*Math.pow(10/d.length,1.9); });
+    
+              node = svg.selectAll(".node")
+                    .data(g.nodes.filter(filternodes))
+                  .enter().append("circle")
+                    .attr("class", "node")
+                    .attr("r", 5)
+                    .style("fill", function (d) { return colors[d.type - 1]; })
+                    .call(d3cola.drag);
+
+                node.on("click", function (d) {
+                    if (d3.event.shiftKey) {
+                        d.fixed = true;
+                        this.setAttribute("r", 3);
+                    }
+                })
+
+                var label = svg.selectAll(".label")
+                    .data(g.nodes.filter(filternodes))
+                    .enter().append("text")
+                    .attr("class", "label")
+                    .attr("text-anchor", "middle")
+                    .attr("dominant-baseline", "central")
+                    .text(function (d) { return d.name; })
+                    .call(d3cola.drag);
+
+                node.append("title")
+                    .text(function (d) { return d.name; });
+
+                d3cola.on("tick", function () {
+                    link.attr("x1", function (d) { return d.source.x; })
+                        .attr("y1", function (d) { return d.source.y; })
+                        .attr("x2", function (d) { return d.target.x; })
+                        .attr("y2", function (d) { return d.target.y; });
+
+                    node.attr("cx", function (d) { return d.x; })
+                        .attr("cy", function (d) { return d.y; });
+
+                    label
+                        .attr("x", function (d) { return d.x })
+                        .attr("y", function (d) { return d.y + 10 });
+
+                });
+        });
+    });
+
+    
+    function filterlinks(value, index, arr) {
+      full_return = true;
+      if(!document.getElementById("is_sector").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 1 && g.nodes[value["target"]]["type"] != 1;
+      if(!document.getElementById("is_marketcap").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 2 && g.nodes[value["target"]]["type"] != 2;
+      if(!document.getElementById("is_international").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 3 && g.nodes[value["target"]]["type"] != 3;
+      if(!document.getElementById("is_corp_bond").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 4 && g.nodes[value["target"]]["type"] != 4;
+      if(!document.getElementById("is_gov_bond").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 5 && g.nodes[value["target"]]["type"] != 5;
+      return full_return;
+    }
+    
+    function filternodes(value, index, arr)
+    {
+      full_return = true;
+      if(!document.getElementById("is_sector").checked)
+        full_return = full_return && value["type"] != 1;
+      if(!document.getElementById("is_marketcap").checked)
+        full_return = full_return && value["type"] != 2;
+      if(!document.getElementById("is_international").checked)
+        full_return = full_return && value["type"] != 3;
+      if(!document.getElementById("is_corp_bond").checked)
+        full_return = full_return && value["type"] != 4;
+      if(!document.getElementById("is_gov_bond").checked)
+        full_return = full_return && value["type"] != 5;
+      return full_return;
+    }
+    
+    var positionText = null;
+    function showPositions() {
+        var ps = "";
+        node.each(function (d) {
+            ps += d.name + "," + d.x + "," + d.y + "<br>";
+        });
+        if (positionText === null) {
+            positionText = d3.select("body").append("div").attr("id", "positions");
+        }
+        positionText.html(ps);
+    }
+}
+</script>
+<footer style="position: fixed;left: 0; bottom: 0; width:100%; display:flex; justify-content: space-between; padding:10px; box-sizing: border-box;">
+  <label><font color="green">Green line</font>: Positive Correlation</label>
+  <label><font color="red">Red line</font>: Negative Correlation</label>
+  <label><b>Thick line</b> and <span style="letter-spacing: -0.1em;">Close Distance</span>: Strong correlation</label>
+  <label>Thin line and <span style="letter-spacing: 0.2em;">Far Distance</span>: Weak correlation</label>
+</footer>
+<!--<button onclick="showPositions()">Dump positions</button>-->
+</body>
+</html>
