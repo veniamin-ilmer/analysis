@@ -1,0 +1,42 @@
+﻿Node,Symbol,Type
+Materials,VAW,1
+"Consumer
+Discretionary",VCR,1
+"Consumer
+Staples",VDC,1
+Energy,VDE,1
+Financials,VFH,1
+"Information
+Technology",VGT,1
+Health Care,VHT,1
+Industrials,VIS,1
+Real Estate,VNQ,1
+"Communication
+Services",VOX,1
+Utilities,VPU,1
+"Small-Cap
+Growth",VBK,2
+"Small-Cap
+Value",VBR,2
+"Large-Cap
+Value",VTV,2
+"Large-Cap
+Growth",VUG,2
+"Emerging
+Markets",VEMAX,3
+"European
+Stock",VGK,3
+"Pacific
+Stock",VPL,3
+"Long-term
+Corp Bond",VWESX,4
+"Short-Term
+Corp Bond",VFSTX,4
+"High-Yield
+Junk Bond",VWEHX,4
+"Long-term
+Treasury",VUSTX,5
+"Short-term
+Treasury",VFISX,5
+"Short-term
+Federal",VSGBX,5
