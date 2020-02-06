@@ -1,4 +1,4 @@
-﻿Node,Symbol,Type
+Node,Symbol,Type
 Materials,VAW,1
 "Consumer
 Discretionary",VCR,1
@@ -40,3 +40,7 @@ Treasury",VUSTX,5
 Treasury",VFISX,5
 "Short-term
 Federal",VSGBX,5
+Preferred Stock,PPSAX,6
+Arbitrage,ARBFX,6
+Commodities,DBC,6
+Currency,DBV,6
