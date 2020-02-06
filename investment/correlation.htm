@@ -103,7 +103,7 @@ function draw() {
     var minFlow = Number.MAX_VALUE, maxFlow = -Number.MAX_VALUE;
     var node;
     d3.csv("correlation_nodes.csv", function (d) {
-          g.nodes.push({ name: d["Node"], type: d["Type"] });
+          g.nodes.push({ name: d["Node"], symbol: d["Symbol"], type: d["Type"] });
     }, function (error, rows) {
         d3.csv("correlation_weights.csv", function (d) {
             var edge = { source: d["From"] - 1, target: d["To"] - 1, length: super_mult/Math.pow(Math.abs(d["Length"]),super_power), positive: d["Length"]>0 }; //flows
@@ -152,7 +152,7 @@ function draw() {
                     .call(d3cola.drag);
 
                 node.append("title")
-                    .text(function (d) { return d.name; });
+                    .text(function (d) { return d.symbol; });
 
                 d3cola.on("tick", function () {
                     link.attr("x1", function (d) { return d.source.x; })
