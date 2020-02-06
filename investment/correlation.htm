@@ -41,6 +41,7 @@ label {
 </style>
 </head>
 <body>
+<div style="position: fixed;left: 0; top: 0; width:100%;">
 <header style="display:flex; justify-content: space-between" id="header">
   <font size=5>Stock Correlation</font>
   <label style="font-size:130%"><input type=checkbox checked id=is_sector onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:olive"></svg>Sectors</label>
@@ -49,13 +50,16 @@ label {
   <label style="font-size:130%"><input type=checkbox checked id=is_corp_bond onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:blue"></svg>Corporate Bonds</label>
   <label style="font-size:130%"><input type=checkbox checked id=is_gov_bond onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:fuchsia"></svg>Government Bonds</label>
 </header>
-Click and drag the nodes to best fit. The further away, the less correlated are the nodes. Good for portfolio diversification.
+Click and drag the nodes to best fit.
+<br />Nodes that are further away are less correlated.
+<br />Good for portfolio diversification.
+</div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script src="https://ialab.it.monash.edu/webcola/cola.min.js"></script>
 <script>
 function start() {
-    var width = window.innerWidth - 50, //Figure this out at some point
-        height = window.innerHeight - 70;
+    var width = window.innerWidth - 20, //Figure this out at some point
+        height = window.innerHeight - 20;
 
     d3cola = cola.d3adaptor()
         .size([width, height]);
