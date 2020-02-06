@@ -49,9 +49,9 @@ label {
   <label style="font-size:130%"><input type=checkbox checked id=is_international onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:green"></svg>International</label>
   <label style="font-size:130%"><input type=checkbox checked id=is_corp_bond onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:blue"></svg>Corporate Bonds</label>
   <label style="font-size:130%"><input type=checkbox checked id=is_gov_bond onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:fuchsia"></svg>Government Bonds</label>
+  <label style="font-size:130%"><input type=checkbox checked id=is_alternative onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:black"></svg>Alternatives</label>
 </header>
-Click and drag the nodes to best fit.
-<br />Nodes that are further away are less correlated.
+Nodes that are further away are less correlated.
 <br />Good for portfolio diversification.
 </div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
@@ -76,7 +76,17 @@ function start() {
     var is_international = document.getElementById("is_international").checked;
     var is_corp_bond = document.getElementById("is_corp_bond").checked;
     var is_gov_bond = document.getElementById("is_gov_bond").checked;
-    if(!is_corp_bond && !is_gov_bond)
+    var is_alternative = document.getElementById("is_alternative").checked;
+    if(is_alternative && !is_corp_bond && !is_gov_bond) {
+      super_power = 1;
+      super_mult = 160;
+    } else if (is_alternative && is_corp_bond) {
+      super_power = 0.8;
+      super_mult = 100;
+    } else if (is_alternative && is_gov_bond) {
+      super_power = 0.8;
+      super_mult = 160;
+    } else if(!is_corp_bond && !is_gov_bond)
     {
       //"Zoomed in" view.
       super_power = 6;
@@ -100,7 +110,7 @@ function redraw() {
 }
 
 function draw() {
-  var colors = ["olive", "maroon", "green", "blue", "fuchsia"];
+  var colors = ["olive", "maroon", "green", "blue", "fuchsia", "black"];
 
     var g = { nodes: [], links: [] };
     var edgeLookup = {};
@@ -188,6 +198,8 @@ function draw() {
         full_return = full_return && g.nodes[value["source"]]["type"] != 4 && g.nodes[value["target"]]["type"] != 4;
       if(!document.getElementById("is_gov_bond").checked)
         full_return = full_return && g.nodes[value["source"]]["type"] != 5 && g.nodes[value["target"]]["type"] != 5;
+      if(!document.getElementById("is_alternative").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 6 && g.nodes[value["target"]]["type"] != 6;
       return full_return;
     }
     
@@ -204,6 +216,8 @@ function draw() {
         full_return = full_return && value["type"] != 4;
       if(!document.getElementById("is_gov_bond").checked)
         full_return = full_return && value["type"] != 5;
+      if(!document.getElementById("is_alternative").checked)
+        full_return = full_return && value["type"] != 6;
       return full_return;
     }
     
