@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--Origin: https://ialab.it.monash.edu/webcola/ -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Language Correlation</title>
+<style>
+
+circle {
+  stroke: #fff;
+  stroke-width: 1.5px;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.negativelink {
+  stroke: #F00;
+  stroke-opacity: 1;
+}
+.positivelink {
+  stroke: lightblue;
+  stroke-opacity: 1;
+}
+
+
+.label {
+  user-select: none;
+  white-space: pre;
+  cursor: pointer;
+}
+
+label {
+  user-select: none;
+  text-align:center;
+}
+
+label.head {
+  font-size:130%;
+  cursor:pointer;
+}
+
+</style>
+</head>
+<body>
+<div style="position: fixed;left: 0; top: 0; width:100%;">
+<header style="display:flex; justify-content: space-between" id="header">
+  <font size=5>Language Correlation</font>
+  <label class="head"><input type=checkbox checked id=slavic onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:olive"></svg>Slavic</label>
+  <label class="head"><input type=checkbox checked id=germanic onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:maroon"></svg>Germanic</label>
+  <label class="head"><input type=checkbox checked id=italic onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:green"></svg>Italic</label>
+  <label class="head"><input type=checkbox id=othereuro onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:black"></svg>Other European</label>
+  <label class="head"><input type=checkbox id=turk onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:purple"></svg>Turk/Iran/Malay</label>
+  <label class="head"><input type=checkbox id=indic onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:blue"></svg>Indic</label>
+  <label class="head"><input type=checkbox id=dravidian onclick="redraw()"><svg width="10" height="10"><circle r=5 cx=5 cy=5 style="fill:brown"></svg>Dravidian</label>
+</header>
+</div>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://ialab.it.monash.edu/webcola/cola.min.js"></script>
+<script>
+function start() {
+    var width = window.innerWidth - 20, //Figure this out at some point
+        height = window.innerHeight - 20;
+
+    d3cola = cola.d3adaptor()
+        .size([width, height]);
+
+    svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+    svg.append("clipPath")
+        .attr("id","clipMask")
+    draw();
+    
+    var slavic = document.getElementById("slavic").checked;
+    var germanic = document.getElementById("germanic").checked;
+    var italic = document.getElementById("italic").checked;
+    var othereuro = document.getElementById("othereuro").checked;
+    var turk = document.getElementById("turk").checked;
+    var indic = document.getElementById("indic").checked;
+    var dravidian = document.getElementById("dravidian").checked;
+
+    super_power = 4;
+    if(dravidian && (slavic || germanic || italic))
+      super_mult = 1;
+    if(indic && (slavic || germanic || italic))
+      super_mult = 4;
+    else if(slavic && othereuro)
+      super_mult = 4;
+    else if(slavic && (germanic || italic || turk))
+      super_mult = 6;
+    else if(othereuro)
+      super_mult = 2;
+    else if(germanic || dravidian)
+      super_mult = 4;
+    else if(turk)
+      super_mult = 5;
+    else if(slavic)
+      super_mult = 8;
+    else if(indic)
+      super_mult = 15;
+    else if(italic)
+      super_mult = 20;
+}
+start();
+
+function redraw() {
+  //Quick inefficient solution
+  svg.remove();
+  start();
+}
+
+function draw() {
+  var colors = ["olive", "maroon", "green", "black", "purple", "blue", "brown", "fuchsia"];
+
+    var g = { nodes: [], links: [] };
+    var edgeLookup = {};
+    var minFlow = Number.MAX_VALUE, maxFlow = -Number.MAX_VALUE;
+    var node;
+    d3.csv("language_nodes.csv", function (d) {
+          g.nodes.push({ name: d["Node"], symbol: d["Symbol"], type: d["Type"] });
+    }, function (error, rows) {
+        d3.csv("language_weights.csv", function (d) {
+            var edge = { source: d["From"] - 1, target: d["To"] - 1, length: super_mult/Math.pow(Math.abs(d["Length"]),super_power), positive: d["Length"]>0 }; //flows
+            g.links.push(edge);
+            edgeLookup[d.Line] = edge;
+}, function (error, rows) {
+
+    g.links = g.links.filter(filterlinks);
+
+    d3cola
+    .linkDistance(function (l) { return l.length })
+    .nodes(g.nodes)
+    .links(g.links)
+    .handleDisconnected(false)
+    //.symmetricDiffLinkLengths()
+    .start();
+    
+    var link = svg.selectAll(".link")
+                    .data(g.links)
+                    .enter().append("line")
+                    .attr("class", function(d) { return d["positive"] ? "positivelink" : "negativelink"})
+                    .style("stroke-width", function (d) { return 200*Math.pow(7/d.length,2); });
+    
+              node = svg.selectAll(".node")
+                    .data(g.nodes.filter(filternodes))
+                  .enter().append("circle")
+                    .attr("class", "node")
+                    .attr("r", 5)
+                    .style("fill", function (d) { return colors[d.type - 1]; })
+                    .call(d3cola.drag);
+
+                node.on("click", function (d) {
+                    if (d3.event.shiftKey) {
+                        d.fixed = true;
+                        this.setAttribute("r", 3);
+                    }
+                })
+
+                var label = svg.selectAll(".label")
+                    .data(g.nodes.filter(filternodes))
+                    .enter().append("text")
+                    .attr("class", "label")
+                    .attr("text-anchor", "middle")
+                    .attr("dominant-baseline", "central")
+                    .text(function (d) { return d.name; })
+                    .call(d3cola.drag);
+
+                node.append("title")
+                    .text(function (d) { return d.symbol; });
+
+                d3cola.on("tick", function () {
+                    link.attr("x1", function (d) { return d.source.x; })
+                        .attr("y1", function (d) { return d.source.y; })
+                        .attr("x2", function (d) { return d.target.x; })
+                        .attr("y2", function (d) { return d.target.y; });
+
+                    node.attr("cx", function (d) { return d.x; })
+                        .attr("cy", function (d) { return d.y; });
+
+                    label
+                        .attr("x", function (d) { return d.x })
+                        .attr("y", function (d) { return d.y + 10 });
+
+                });
+        });
+    });
+
+    
+    function filterlinks(value, index, arr) {
+      full_return = true;
+      if(!document.getElementById("slavic").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 1 && g.nodes[value["target"]]["type"] != 1;
+      if(!document.getElementById("germanic").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 2 && g.nodes[value["target"]]["type"] != 2;
+      if(!document.getElementById("italic").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 3 && g.nodes[value["target"]]["type"] != 3;
+      if(!document.getElementById("othereuro").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 4 && g.nodes[value["target"]]["type"] != 4;
+      if(!document.getElementById("turk").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 5 && g.nodes[value["target"]]["type"] != 5;
+      if(!document.getElementById("indic").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 6 && g.nodes[value["target"]]["type"] != 6;
+      if(!document.getElementById("dravidian").checked)
+        full_return = full_return && g.nodes[value["source"]]["type"] != 7 && g.nodes[value["target"]]["type"] != 7;
+
+      return full_return;
+    }
+    
+    function filternodes(value, index, arr)
+    {
+      full_return = true;
+      if(!document.getElementById("slavic").checked)
+        full_return = full_return && value["type"] != 1;
+      if(!document.getElementById("germanic").checked)
+        full_return = full_return && value["type"] != 2;
+      if(!document.getElementById("italic").checked)
+        full_return = full_return && value["type"] != 3;
+      if(!document.getElementById("othereuro").checked)
+        full_return = full_return && value["type"] != 4;
+      if(!document.getElementById("turk").checked)
+        full_return = full_return && value["type"] != 5;
+      if(!document.getElementById("indic").checked)
+        full_return = full_return && value["type"] != 6;
+      if(!document.getElementById("dravidian").checked)
+        full_return = full_return && value["type"] != 7;
+      return full_return;
+    }
+    
+    var positionText = null;
+    function showPositions() {
+        var ps = "";
+        node.each(function (d) {
+            ps += d.name + "," + d.x + "," + d.y + "<br>";
+        });
+        if (positionText === null) {
+            positionText = d3.select("body").append("div").attr("id", "positions");
+        }
+        positionText.html(ps);
+    }
+}
+</script>
+<footer style="position: fixed;left: 0; bottom: 0; width:100%; display:flex; justify-content: space-between; padding:10px; box-sizing: border-box;">
+  <label>Click and drag the nodes to get a better view.</label>
+  <label><b>Thick line</b> and <span style="letter-spacing: -0.1em;">Close Distance</span>: Strong correlation</label>
+  <label>Thin line and <span style="letter-spacing: 0.2em;">Far Distance</span>: Weak correlation</label>
+</footer>
+<!--<button onclick="showPositions()">Dump positions</button>-->
+</body>
+</html>
