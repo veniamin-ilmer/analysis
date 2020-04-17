@@ -1,5 +1,5 @@
-# durak-analysis
-Analyzing the win rate for strategies in the Russian game Durak (Fool)
+# Two player Durak analysis
+Analyzing the win rate for strategies in the Russian game Durak (Fool), with two players.
 
 ## Introduction
 
