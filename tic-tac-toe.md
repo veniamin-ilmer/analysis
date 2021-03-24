@@ -2,6 +2,8 @@
 
 I ran a simulation of every possible move in Tic Tac Toe and gathered statistics over possibilities of winning.
 
+Note that the percentages do not represent perfect play. Rather, they represent the percentages of possible wins or losses.
+
 Before starting the game, it is interesting to note:
 
 * The first player has *51%* possibilities for winning.
@@ -11,6 +13,8 @@ Before starting the game, it is interesting to note:
 Assume first player is **X**. Assume second player is **O**.
 
 Below are all the possibilities for each turn. If a turn isn't listed, rotate the board. You will find a rotation / flip of the board that corresponds to your game.
+
+Pay attention to the places where a tie is a low percentage. With perfect play, a player can use the low tie percentage to force a win.
 
 ---
 
@@ -70,4 +74,4 @@ It is **X**'s turn.
 |:-:|:-:|:-:|
 | <span style="font-size:xxx-large">X</span> | **X** wins = *38%*<br>**O** wins = *43%*<br>Tie = *19%* | <span style="font-size:xxx-large">O</span> |
 | **X** wins = *55%*<br>**O** wins = *45%*<br>Tie = *0%* | **X** wins = *62%*<br>**O** wins = *22%*<br>Tie = *16%* | **X** wins = *51%*<br>**O** wins = *25%*<br>Tie = *24%* |
-| **X** wins = *51%*<br>**O** wins = *19%*<br>Tie = *30%* | **X** wins = *51%*<br>**O** wins = *36%*<br>Tie = *13%* | **X** wins = *59%*<br>**O** wins = *33%*<br>Tie = *8%* |
+| **X** wins = *51%*<br>**O** wins = *19%*<br>Tie = *30%* | **X** wins = *51%*<br>**O** wins = *36%*<br>Tie = *13%* | **X** wins = *59%*<br>**O** wins = *33%*<br>Tie = *7%* |
