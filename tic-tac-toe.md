@@ -2,8 +2,6 @@
 
 I ran a simulation of every possible move in Tic Tac Toe and gathered statistics over possibilities of winning.
 
-Below you can click on each move and get the resulting possibilities for each.
-
 Before starting the game, it is interesting to note:
 
 * The first player has *51%* possibilities for winning.
@@ -12,9 +10,11 @@ Before starting the game, it is interesting to note:
 
 Assume first player is **X**. Assume second player is **O**.
 
+Below are all the possibilities for each turn. If a turn isn't listed, rotate the board. You will find a rotation / flip of the board that corresponds to your game.
+
 ---
 
-It is **X**'s turn. Click a cell to see further possibilities.
+It is **X**'s turn.
 
 |   |   |   |
 |:-:|:-:|:-:|
@@ -24,7 +24,7 @@ It is **X**'s turn. Click a cell to see further possibilities.
 
 ---
 
-It is **O**'s turn. Click a cell to see further possibilities.
+It is **O**'s turn.
 
 |   |   |   |
 |:-:|:-:|:-:|
@@ -34,7 +34,7 @@ It is **O**'s turn. Click a cell to see further possibilities.
 
 ---
 
-It is **O**'s turn. Click a cell to see further possibilities.
+It is **O**'s turn.
 
 |   |   |   |
 |:-:|:-:|:-:|
@@ -44,7 +44,7 @@ It is **O**'s turn. Click a cell to see further possibilities.
 
 ---
 
-It is **O**'s turn. Click a cell to see further possibilities.
+It is **O**'s turn.
 
 |   |   |   |
 |:-:|:-:|:-:|
@@ -54,10 +54,20 @@ It is **O**'s turn. Click a cell to see further possibilities.
 
 ---
 
-It is **X**'s turn. Click a cell to see further possibilities.
+It is **X**'s turn.
 
 |   |   |   |
 |:-:|:-:|:-:|
 | <span style="font-size:xxx-large">X</span> | <span style="font-size:xxx-large">O</span> | **X** wins = *45%*<br>**O** wins = *24%*<br>Tie = *31%* |
 | **X** wins = *50%*<br>**O** wins = *27%*<br>Tie = *23%* | **X** wins = *67%*<br>**O** wins = *10%*<br>Tie = *23%* | **X** wins = *53%*<br>**O** wins = *22%*<br>Tie = *25%* |
 | **X** wins = *64%*<br>**O** wins = *20%*<br>Tie = *16%* | **X** wins = *54%*<br>**O** wins = *13%*<br>Tie = *33%* | **X** wins = *62%*<br>**O** wins = *30%*<br>Tie = *8%* |
+
+---
+
+It is **X**'s turn.
+
+|   |   |   |
+|:-:|:-:|:-:|
+| <span style="font-size:xxx-large">X</span> | **X** wins = *38%*<br>**O** wins = *43%*<br>Tie = *19%* | <span style="font-size:xxx-large">O</span> |
+| **X** wins = *55%*<br>**O** wins = *45%*<br>Tie = *0%* | **X** wins = *62%*<br>**O** wins = *22%*<br>Tie = *16%* | **X** wins = *51%*<br>**O** wins = *25%*<br>Tie = *24%* |
+| **X** wins = *51%*<br>**O** wins = *19%*<br>Tie = *30%* | **X** wins = *51%*<br>**O** wins = *36%*<br>Tie = *13%* | **X** wins = *59%*<br>**O** wins = *33%*<br>Tie = *8%* |
