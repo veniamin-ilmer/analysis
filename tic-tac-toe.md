@@ -48,9 +48,9 @@ It is **O**'s turn. Click a cell to see further possibilities.
 
 |   |   |   |
 |:-:|:-:|:-:|
-| **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* | **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *18%* | **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* |
-| **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *18%* | <span style="font-size:xxx-large">X</span> | **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *18%* |
-| **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* | **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *18%* | **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* |
+| **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* | **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *17%* | **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* |
+| **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *17%* | <span style="font-size:xxx-large">X</span> | **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *17%* |
+| **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* | **X** wins = *64%*<br>**O** wins = *19%*<br>Tie = *17%* | **X** wins = *57%*<br>**O** wins = *25%*<br>Tie = *18%* |
 
 ---
 
