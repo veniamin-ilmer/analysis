@@ -14,9 +14,19 @@ Assume first player is **X**. Assume second player is **O**.
 
 ---
 
-It is **X**'s turn. Click and cell to see further possibilities.
+It is **X**'s turn. Click a cell to see further possibilities.
 | | | |
 |-|-|-|
 | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
+| **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *60%*<br>**O** wins = *22%*<br>Tie = *18%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* |
+| **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
+
+---
+
+It is **O**'s turn. Click a cell to see further possibilities.
+
+| | | |
+|-|-|-|
+| ###X | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
 | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *60%*<br>**O** wins = *22%*<br>Tie = *18%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* |
 | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
