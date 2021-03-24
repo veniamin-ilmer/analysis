@@ -27,6 +27,6 @@ It is **O**'s turn. Click a cell to see further possibilities.
 
 | | | |
 |-|-|-|
-| <span style="font-size:x-large">X</span> | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
+| <span style="font-size:xxx-large">X</span> | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
 | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *60%*<br>**O** wins = *22%*<br>Tie = *18%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* |
 | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* | **X** wins = *48%*<br>**O** wins = *34%*<br>Tie = *18%* | **X** wins = *53%*<br>**O** wins = *28%*<br>Tie = *19%* |
