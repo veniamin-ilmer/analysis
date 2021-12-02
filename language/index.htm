@@ -191,7 +191,7 @@ function draw() {
 
     
     function filterlinks(value, index, arr) {
-      full_return = true;
+      full_return = g.nodes[value["source"]]["type"] != 10 && g.nodes[value["target"]]["type"] != 10; //Legacy
       if(!document.getElementById("slavic").checked)
         full_return = full_return && g.nodes[value["source"]]["type"] != 1 && g.nodes[value["target"]]["type"] != 1;
       if(!document.getElementById("germanic").checked)
@@ -212,7 +212,7 @@ function draw() {
     
     function filternodes(value, index, arr)
     {
-      full_return = true;
+      full_return = value["type"] != 10; //Legacy
       if(!document.getElementById("slavic").checked)
         full_return = full_return && value["type"] != 1;
       if(!document.getElementById("germanic").checked)
@@ -250,4 +250,3 @@ function draw() {
 </footer>
 </body>
 </html>
-
