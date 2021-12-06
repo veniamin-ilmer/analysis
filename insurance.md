@@ -8,7 +8,7 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
 * [Yourself and your passengers](#bodily-coverage)
 * [Whatever or whomever you hit](#liability-coverage)
 
-### <a name="property-damage">Property Damage</a>
+### <a name="property-coverage">Property Coverage</a>
 
                                               ┌───────────────────────┐
                        ┌────────────────┬─────┤Protecting your vehicle├─────────────┬────────────────────────────┐
