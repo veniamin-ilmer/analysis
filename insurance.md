@@ -16,7 +16,7 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
                        │                │                 │                         │                            │
                        │                │                 │                         │                            │
                  ┌─────▼──────┐  ┌──────▼─────┐  ┌────────▼──────┐    ┌─────────────▼───────────────┐  ┌─────────▼─────────┐
-                 │Someone hits│  │Your vehicle│  │You hit someone│    │Theft, Vandalism, Riots      │  │Old age, maintenace│
+                 │Someone hits│  │Your vehicle│  │You hit someone│    │Theft, Vandalism, Riots      │  │Old age, breakdowns│
                  │your vehicle│  │rolls over  │  │or something   │    │Falling trees, rocks, debris,│  └─────────┬─────────┘
                  └─────┬──────┘  └──────┬─────┘  └────────┬──────┘    │Hail/lighting/earthquake     │            │
                        │                │                 │           │Flood, Fire, Meteor,         │  ┌─────────▼──────────┐
