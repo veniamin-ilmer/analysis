@@ -3,14 +3,14 @@
 Legal disclaimer: This site does not provide advice. It is intended for information purposes only. It is not a substitute for professional advice provided by an insurance agency.
 
 
-                 ┌────────────────┐
-       ┌─────────┤Protecting What?├────────┐
-       │         └────────┬───────┘        │
-       │                  │                │
- ┌─────▼──────┐   ┌───────▼───────┐   ┌────▼────┐
- │[Your vehicle](#property-damage)│   │Yourself and   │   │Whatever │
- └────────────┘   │your passengers│   │you hit  │
-                  └───────────────┘   └─────────┘
+                    ┌────────────────┐
+          ┌─────────┤Protecting What?├────────┐
+          │         └────────┬───────┘        │
+          │                  │                │
+    ┌─────▼──────┐   ┌───────▼───────┐   ┌────▼────┐
+    │[Your vehicle](#property-damage)│   │Yourself and   │   │Whatever │
+    └────────────┘   │your passengers│   │you hit  │
+                     └───────────────┘   └─────────┘
 
 ### <a name="property-damage">Property Damage</a>
 
