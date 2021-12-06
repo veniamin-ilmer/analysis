@@ -5,6 +5,6 @@ Mechanical Breakdown Insurance<br>Car Warranty
 |----------------|-------------|------------------|
 |  | Car maintenance. | Engine<br>Transmission<br>Belts<br>Suspension<br>Sometimes Oil change<br>Not changing tire |
 
-|   | <style = "transform:rotate(90deg)">Mechanical Breakdown</style> |
+|   | <span style = "transform:rotate(90deg)">Mechanical Breakdown</style> |
 |---|---|
 | Drive Axle | ✅ |
