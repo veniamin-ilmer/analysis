@@ -48,11 +48,11 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
            │whoever you hit       │
            └───────────┬──────────┘
                        │
-    ┌──────────────────▼─────────────────────┐
-    │You hit a car or object, or a person.   │
-    │If that person tries to sue you or claim│
-    │compensation for damages.               │
-    └──────────────────┬─────────────────────┘
+    ┌──────────────────▼──────────────────┐
+    │You hit a car, object, or a person.  │
+    │That person tries to sue you or claim│
+    │compensation for damages.            │
+    └──────────────────┬──────────────────┘
                        │
              ┌─────────▼─────────┐
              │Liability Insurance│
