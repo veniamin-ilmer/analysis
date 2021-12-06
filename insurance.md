@@ -41,7 +41,7 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
              │Coverage          │
              └──────────────────┘
 
-### <a name="liability-coverage>Liability Coverage</a>
+### <a name="liability-coverage">Liability Coverage</a>
 
            ┌──────────────────────┐
            │Protecting whatever or│
