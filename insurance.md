@@ -4,9 +4,26 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
 
 ### What would you like to protect?
 
+* [Yourself from being sued](#liability-coverage)
 * [Your vehicle](#property-coverage)
 * [Yourself and your passengers](#bodily-coverage)
-* [Whatever or whomever you hit](#liability-coverage)
+
+### <a name="liability-coverage">Liability Coverage</a>
+
+              ┌──────────────────┐
+              │Lawsuit Protection│
+              └────────┬─────────┘
+                       │
+    ┌──────────────────▼──────────────────┐
+    │You hit a car, object, or a person.  │
+    │That person tries to sue you or claim│
+    │compensation for damages.            │
+    └──────────────────┬──────────────────┘
+                       │
+             ┌─────────▼─────────┐
+             │Liability Insurance│
+             └───────────────────┘
+
 
 ### <a name="vehicle-coverage">Vehicle Coverage</a>
 
@@ -40,20 +57,3 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
              │Property Damage   │
              │Coverage          │
              └──────────────────┘
-
-### <a name="liability-coverage">Liability Coverage</a>
-
-           ┌──────────────────────┐
-           │Protecting whatever or│
-           │whoever you hit       │
-           └───────────┬──────────┘
-                       │
-    ┌──────────────────▼──────────────────┐
-    │You hit a car, object, or a person.  │
-    │That person tries to sue you or claim│
-    │compensation for damages.            │
-    └──────────────────┬──────────────────┘
-                       │
-             ┌─────────▼─────────┐
-             │Liability Insurance│
-             └───────────────────┘
