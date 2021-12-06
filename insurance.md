@@ -5,7 +5,7 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
 ### What would you like to protect?
 
 * [Yourself from being sued](#liability-coverage)
-* [Your vehicle](#property-coverage)
+* [Your vehicle](#vehicle-coverage)
 * [Your body and your passengers' body health](#bodily-coverage)
 
 ### <a name="liability-coverage">Liability Coverage</a>
@@ -56,3 +56,6 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
              │Property Damage   │
              │Coverage          │
              └──────────────────┘
+
+
+### <a name="bodily-coverage">Bodily Coverage</a>
