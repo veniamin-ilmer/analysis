@@ -2,7 +2,7 @@
 
 Legal disclaimer: This site does not provide advice. It is intended for information purposes only. It is not a substitute for professional advice provided by an insurance agency.
 
-What would you like to protect?
+### What would you like to protect?
 
 * [Your vehicle](#property-coverage)
 * [Yourself and your passengers](#bodily-coverage)
