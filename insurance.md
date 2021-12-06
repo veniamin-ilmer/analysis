@@ -1,10 +1,24 @@
-# Car Insurance
 
-Mechanical Breakdown Insurance<br>Car Warranty
-| Insurance Type | Description | Example Coverage |
-|----------------|-------------|------------------|
-|  | Car maintenance. | Engine<br>Transmission<br>Belts<br>Suspension<br>Sometimes Oil change<br>Not changing tire |
 
-|   | <span style = "transform:rotate(90deg)">Mechanical Breakdown</span> |
-|---|---|
-| Drive Axle | ✅ |
+
+                        ┌────────────────┐
+              ┌─────────┤Protecting What?├───────┐
+              │         └───────┬────────┘       │
+              │                 │                │
+         ┌────▼───┐     ┌───────▼───────┐   ┌────▼───┐            ┌──────────────────────────────────┐
+         │Whatever│     │Yourself and   │   │Your car├────────────►Theft, Vandalism, Riots, Explosion│
+         │you hit │     │your passengers│   └────┬───┘            │Falling trees, rocks, debris,     │
+         └────────┘     └───────────────┘        │                │Hail/lighting/earthquake/weather, │
+                                                 │                │Flood, Fire                       │
+                                        ┌────────▼──────────┐     └───────────────┬──────────────────┘
+                                        │You hit anything,  │                     │
+                                        │Someone hits you,  ├───────┐  ┌──────────▼────────────┐
+                                        │Your car rolls over│       │  │Comprehensive Insurance│
+                                        └────────┬──────────┘       │  └──────────▲────────────┘
+                                                 │                  │             │
+                                                 │               ┌──▼─────────────┴─┐
+                                        ┌────────▼──────────┐    │Hit a wild animal?│
+                                        │Collision Insurance◄────┤Either insurance  │
+                                        └───────────────────┘    │will work.        │
+                                                                 └──────────────────┘
+
