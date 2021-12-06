@@ -11,24 +11,24 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
 ### <a name="vehicle-coverage">Vehicle Coverage</a>
 
                                               ┌───────────────────────┐
-                       ┌────────────────┬─────┤Protecting your vehicle├─────────────┬────────────────────────────┐
-                       │                │     └───────────┬───────────┘             │                            │
-                       │                │                 │                         │                            │
-                       │                │                 │                         │                            │
-                 ┌─────▼──────┐  ┌──────▼─────┐  ┌────────▼──────┐    ┌─────────────▼───────────────┐  ┌─────────▼─────────┐
-                 │Someone hits│  │Your vehicle│  │You hit someone│    │Theft, Vandalism, Riots      │  │Old age, breakdowns│
-                 │your vehicle│  │rolls over  │  │or something   │    │Falling trees, rocks, debris,│  └─────────┬─────────┘
-                 └─────┬──────┘  └──────┬─────┘  └────────┬──────┘    │Hail/lighting/earthquake     │            │
-                       │                │                 │           │Flood, Fire, Meteor,         │  ┌─────────▼──────────┐
-    ┌──────────────────▼──────┐         │                 │           │or other weather condition.  │  │Extended Warranty or│
-    │Their insurance should   │         │        ┌────────▼─────────┐ └─────────────┬───────────────┘  │Mechanical Breakdown│
-    │cover you.               │         ├─────No─┤Hit a wild animal?│               │                  │Insurance           │
-    │You get insurance in case│         │        └────────┬─────────┘               │                  └────────────────────┘
-    │they are underinsured,   │         │              Yes│                         │
-    │or they ran away.        │    ┌────▼────┐         ┌──▼───┐              ┌──────▼──────┐
-    └──────────────────┬──────┘    │Collision◄─────────┤Either├──────────────►Comprehensive│
-                       │           │Insurance│         └──────┘              │  Insurance  │
-    ┌──────────────────▼────────┐  └────▲────┘                               └─────────────┘
+                       ┌────────────────┬─────┤Protecting your vehicle├────────────┬────────────────────────────┐
+                       │                │     └───────────┬───────────┘            │                            │
+                       │                │                 │                        │                            │
+                       │                │                 │                        │                            │
+                 ┌─────▼──────┐  ┌──────▼─────┐  ┌────────▼──────┐   ┌─────────────▼───────────────┐  ┌─────────▼─────────┐
+                 │Someone hits│  │Your vehicle│  │You hit someone│   │Theft, Vandalism, Riots      │  │Old age, breakdowns│
+                 │your vehicle│  │rolls over  │  │or something   │   │Falling trees, rocks, debris,│  └─────────┬─────────┘
+                 └─────┬──────┘  └──────┬─────┘  └────────┬──────┘   │Hail/lighting/earthquake     │            │
+                       │                │                 │          │Flood, Fire, Meteor,         │  ┌─────────▼──────────┐
+    ┌──────────────────▼──────┐         │                 │          │or other weather condition.  │  │Extended Warranty or│
+    │Their insurance should   │         │       ┌─────────▼────────┐ └─────────────┬───────────────┘  │Mechanical Breakdown│
+    │cover you.               │         ├────No─┤Hit a wild animal?│               │                  │Insurance           │
+    │You get insurance in case│         │       └─────────┬────────┘               │                  └────────────────────┘
+    │they are underinsured,   │         │              Yes│                        │
+    │or they ran away.        │    ┌────▼────┐         ┌──▼───┐             ┌──────▼──────┐
+    └──────────────────┬──────┘    │Collision◄─────────┤Either├─────────────►Comprehensive│
+                       │           │Insurance│         └──────┘             │  Insurance  │
+    ┌──────────────────▼────────┐  └────▲────┘                              └─────────────┘
     │Do you live in this state? │       │
     │AK,AR,CA,DE,DC,GA,IN,IL,LA,│       │
     │MD,MS,SC,NC,NJ,NM,OH,RI,TN,├─No────┘
@@ -41,19 +41,19 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
              │Coverage          │
              └──────────────────┘
 
-### <a name="#liability-coverage>Liability Coverage</a>
+### <a name="liability-coverage>Liability Coverage</a>
 
-       ┌──────────────────────┐
-       │Protecting whatever or│
-       │whoever you hit       │
-       └───────────┬──────────┘
-                   │
-┌──────────────────▼─────────────────────┐
-│You hit a car or property, or a person. │
-│If that person tries to sue you or claim│
-│compensation for damages.               │
-└──────────────────┬─────────────────────┘
-                   │
-         ┌─────────▼─────────┐
-         │Liability Insurance│
-         └───────────────────┘
+           ┌──────────────────────┐
+           │Protecting whatever or│
+           │whoever you hit       │
+           └───────────┬──────────┘
+                       │
+    ┌──────────────────▼─────────────────────┐
+    │You hit a car or object, or a person.   │
+    │If that person tries to sue you or claim│
+    │compensation for damages.               │
+    └──────────────────┬─────────────────────┘
+                       │
+             ┌─────────▼─────────┐
+             │Liability Insurance│
+             └───────────────────┘
