@@ -41,3 +41,19 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
              │Coverage          │
              └──────────────────┘
 
+### <a name="#liability-coverage>Liability Coverage</a>
+
+       ┌──────────────────────┐
+       │Protecting whatever or│
+       │whoever you hit       │
+       └───────────┬──────────┘
+                   │
+┌──────────────────▼─────────────────────┐
+│You hit a car or property, or a person. │
+│If that person tries to sue you or claim│
+│compensation for damages.               │
+└──────────────────┬─────────────────────┘
+                   │
+         ┌─────────▼─────────┐
+         │Liability Insurance│
+         └───────────────────┘
