@@ -6,7 +6,7 @@ Legal disclaimer: This site does not provide advice. It is intended for informat
 
 * [Yourself from being sued](#liability-coverage)
 * [Your vehicle](#vehicle-coverage)
-* [Your body and your passengers' body health](#bodily-coverage)
+* [Your body and your passengers' body](#bodily-coverage)
 
 ### <a name="liability-coverage">Liability Coverage</a>
 
